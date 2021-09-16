@@ -40,7 +40,7 @@ def start():
         global state
         global state1
 
-        if message.text == "Hello" or message.text == "hello":
+        if message.text == "/start":
             bot.send_message(message.from_user.id, "Hello, how can i help you?\n"
                                                    "Write, /List_of_commands if want to see all commands\n")
         elif message.text == "/help":
