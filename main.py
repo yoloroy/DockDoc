@@ -99,18 +99,21 @@ def start():
             if state1 == APPROVE_ID_GETTING:
                 id = message.text
                 Controller().approve_document(int(id))
+                bot.send_message(message.from_user.id, "The transaction number "+str(id)+" is approved")
             elif state1 == ID_DISAPPROVE_GETTING:
                 id = message.text
                 Controller().disapprove_document(int(id))
+                bot.send_message(message.from_user.id, "The transaction number " + str(id) + " is disapproved")
             elif state1 == ALL_NAME_GETTING:
                 name = message.text
-                bot.send_message(message.from_user.id, Controller().get_for(sender=name, receiver=name))
+                bot.send_message(message.from_user.id, str(Controller().get_for(anyone=name)))
             elif state1 == SENDER_NAME_GETTING:
                 name = message.text
-                bot.send_message(message.from_user.id, Controller().get_for(sender=name))
+                bot.send_message(message.from_user.id, str(Controller().get_for(sender=name)))
             elif state1 == RECIEVER_NAME_GETTING:
                 name = message.text
                 bot.send_message(message.from_user.id, str(Controller().get_for(receiver=name)))
+            state1 = None
 
 
 
